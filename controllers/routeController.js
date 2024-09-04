@@ -137,4 +137,4 @@ const deleteRoute = async (req, res) => {
 
 };
 
-module.exports = { getAllRoutes, getRouteById, addRoute, updateRoute, deleteRoute,updateTrafficAndDensity,startBusRoute, endBusRoute };
+module.exports = {deleteRoute, getAllRoutes, getRouteById, addRoute, updateRoute, deleteRoute,updateTrafficAndDensity,startBusRoute, endBusRoute };
