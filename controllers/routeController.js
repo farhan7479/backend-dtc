@@ -25,8 +25,8 @@ const getRouteById = async (req, res) => {
 
 // Add a new route
 const addRoute = async (req, res) => {
-    const { routeName, stops, buses, peakHours, trafficData, densityData } = req.body;
-    const route = new Route({ routeName, stops, buses, peakHours, trafficData, densityData });
+    const { routeName, stops, buses, peakHours, trafficData, densityData,frequency } = req.body;
+    const route = new Route({ routeName, stops, buses, peakHours,frequency, trafficData, densityData });
     try {
       const newRoute = await route.save();
       res.status(201).json(newRoute);
