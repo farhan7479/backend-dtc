@@ -25,8 +25,8 @@ const getBusById = async (req, res) => {
 // Add a new bus
 const addBus = async (req, res) => {
   try {
-    const { busNumber, capacity } = req.body;
-    const newBus = new Bus({ busNumber, capacity });
+    const { busNumber, capacity, currentRoute, isAssigned, isAC, condition, gender } = req.body;
+    const newBus = new Bus({ busNumber, capacity  ,isAC, condition, gender});
     await newBus.save();
     res.status(201).json(newBus);
   } catch (error) {
@@ -37,10 +37,10 @@ const addBus = async (req, res) => {
 // Update an existing bus
 const updateBus = async (req, res) => {
   try {
-    const { busNumber, capacity ,currentRoute, isAssigned} = req.body;
+    const { busNumber, capacity, currentRoute, isAssigned, isAC, condition, gender } = req.body;
     const bus = await Bus.findByIdAndUpdate(
       req.params.id,
-      { busNumber, capacity , currentRoute, isAssigned},
+      { busNumber, capacity , currentRoute, isAssigned, isAC, condition, gender },
       { new: true }
     );
     if (!bus) return res.status(404).json({ message: 'Bus not found' });
